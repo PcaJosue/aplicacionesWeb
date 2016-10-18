@@ -1,5 +1,4 @@
 # aplicacionesWeb
-
 <html ng-app="miapp">
 	<script src="E:/AplicacioneWeb/angular-1.5.8/angular.js"> </script>
 		<body ng-controller='control1'>
@@ -10,12 +9,11 @@
 		.controller('control1',function($scope)
 								{
 								$scope.titulo='Mi aplicacion';
-								
 								}
 					).directive('reloj', function($interval){
 					var objeto;
-					obj={restrict:'E',template:'mi reloj'};
-					return obj
+					objeto={restrict:'E', template: 'mi reloj {{ modo }} ', scope:{modo:' @ '}};
+					return objeto
 					});
 
 					
