@@ -3,7 +3,7 @@
 	<script src="E:/AplicacioneWeb/angular-1.5.8/angular.js"> </script>
 		<body ng-controller='control1'>
 		{{titulo}}
-		<reloj modo='fecha'/>
+		<reloj modo='fecha'/ estilo="gallina">
 		<script>
 		var miapp=angular.module('miapp',[])
 		.controller('control1',function($scope)
@@ -15,6 +15,10 @@
 				obj=
 				{restrict:'E',link:function(scope,elemento,atributo)
 					{
+						if(atributo.estilo=='gallina'){
+							elemento.css({background:'#ffffcc',font:'18px Arial'});
+											
+						};			
 						function imprimirHora()
 						{
 							var fh=new Date();
