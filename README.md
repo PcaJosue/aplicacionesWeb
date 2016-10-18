@@ -12,10 +12,11 @@
 								}
 					).directive('reloj', function($interval){
 					var objeto;
-					objeto={restrict:'E', template: 'mi reloj {{ modo }} ', scope:{modo:' @ '}};
+					objeto={restrict:'E', link:function(scope, elemento, atributo){
+					elemento.html("mi reloj "+ atributo.modo);
+					}};
 					return objeto
 					});
-
 					
 					
 		</script>
