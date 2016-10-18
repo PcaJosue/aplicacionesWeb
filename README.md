@@ -12,9 +12,10 @@
 								}
 					).directive('reloj', function($interval){
 					var obj;
+					var mireloj;
 				obj=
 				{restrict:'E',link:function(scope,elemento,atributo)
-					{
+					{	var activo=1;
 						if(atributo.estilo=='gallina'){
 							elemento.css({background:'#ffffcc',font:'18px Arial'});
 											
@@ -32,10 +33,21 @@
 							}
 						}
 					mireloj=$interval(imprimirHora,1000);
+					elemento.on('click', function(){
+					if(activo==1){
+					activo=0;
+					$interval.cancel(mireloj);
 					}
-				};
-			return obj;
+					else{
+					activo=1;
+					mireloj=$interval (imprimirHora,1000);
+					}
+				
+				})
+			}};
+			return (obj);
 			});
+
 		</script>
-	</body>
+		</body>
 </html>
