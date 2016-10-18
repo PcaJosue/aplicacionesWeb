@@ -27,7 +27,7 @@
 								elemento.html(fh.toLocaleString());
 							}
 						}
-					imprimirHora();
+					mireloj=$interval(imprimirHora,1000);
 					}
 				};
 			return obj;
