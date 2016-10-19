@@ -1,53 +1,52 @@
 # aplicacionesWeb
 <html ng-app="miapp">
-	<script src="E:/AplicacioneWeb/angular-1.5.8/angular.js"> </script>
-		<body ng-controller='control1'>
-		{{titulo}}
-		<reloj modo='fecha'/ estilo="gallina">
-		<script>
-		var miapp=angular.module('miapp',[])
-		.controller('control1',function($scope)
-								{
-								$scope.titulo='Mi aplicacion';
-								}
-					).directive('reloj', function($interval){
-					var obj;
-					var mireloj;
-				obj=
-				{restrict:'E',link:function(scope,elemento,atributo)
-					{	var activo=1;
-						if(atributo.estilo=='gallina'){
-							elemento.css({background:'#ffffcc',font:'18px Arial'});
-											
-						};			
-						function imprimirHora()
-						{
-							var fh=new Date();
-							if(atributo.modo=='hora')
-							{
-								elemento.html(fh.toLocaleTimeString());
-							}
-							else if (atributo.modo=='fecha')
-							{
-								elemento.html(fh.toLocaleString());
-							}
-						}
-					mireloj=$interval(imprimirHora,1000);
-					elemento.on('click', function(){
-					if(activo==1){
-					activo=0;
-					$interval.cancel(mireloj);
-					}
-					else{
-					activo=1;
-					mireloj=$interval (imprimirHora,1000);
-					}
-				
-				})
-			}};
-			return (obj);
-			});
-
+<head>
+<meta charset="UTF-8">
+<script src="D:/web/angular-1.5.8/angular.min.js"></script>
+</head>
+	<body ng-controller='control1'>
+	<h1>{{encuesta}}</h1>
+	<form>
+		
+		<table class='cuestionario'>
+		<tr> <td colspan='5' class='pregunta'>
+		<p> Que opina sobre el transporte publico </p>
+		</td></tr>
+		<tr>
+		<td>
+		<label for="pesimo">Pesimo</label>
+		<input type='radio' name="transpublic" id="pesimo">
+		</td>
+		
+		<td>
+		<label for="pesimo">Malo</label>
+		<input type='radio' name="transpublic" id="pesimo">
+		</td>
+		
+		<td>
+		<label for="pesimo">Aceptable</label>
+		<input type='radio' name="transpublic" id="pesimo">
+		</td>
+		
+		<td>
+		<label for="pesimo">Bueno</label>
+		<input type='radio' name="transpublic" id="pesimo">
+		</td>
+		
+		<td>
+		<label for="pesimo">Excelente</label>
+		<input type='radio' name="transpublic" id="pesimo">
+		</td>
+		
+		</tr>
+		</table>
+	</form>
+		<script> 
+		var mipp=angular.module('miapp',[])
+		.controller('control1',function($scope){
+		$scope.encuesta='Encuesta sobre servicios publicos';
+		}
+		);
 		</script>
-		</body>
+	</body>
 </html>
