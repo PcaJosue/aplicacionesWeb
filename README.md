@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <script src="D:/web/angular-1.5.8/angular.min.js"></script>
+<style>
+.iconoEvaluacion{width:50px}
+</style>
 </head>
 	<body ng-controller='control1'>
 	<h1>{{encuesta}}</h1>
@@ -14,28 +17,28 @@
 		</td></tr>
 		<tr>
 		<td>
-		<label for="pesimo">Pesimo</label>
+		<label for="pesimo"><img src="D:/web/imagenes/pesimo.jpg" class="iconoEvaluacion"></label>
 		<input type='radio' name="transpublic" id="pesimo">
 		</td>
 		
 		<td>
-		<label for="pesimo">Malo</label>
-		<input type='radio' name="transpublic" id="pesimo">
+		<label for="malo"><img src="D:/web/imagenes/malo.jpg" class="iconoEvaluacion"></label>
+		<input type='radio' name="transpublic" id="malo">
 		</td>
 		
 		<td>
-		<label for="pesimo">Aceptable</label>
-		<input type='radio' name="transpublic" id="pesimo">
+		<label for="aceptable"><img src="D:/web/imagenes/aceptable.jpg" class="iconoEvaluacion"></label>
+		<input type='radio' name="transpublic" id="aceptable">
 		</td>
 		
 		<td>
-		<label for="pesimo">Bueno</label>
-		<input type='radio' name="transpublic" id="pesimo">
+		<label for="bueno"><img src="D:/web/imagenes/bueno.jpg" class="iconoEvaluacion"></label>
+		<input type='radio' name="transpublic" id="bueno">
 		</td>
 		
 		<td>
-		<label for="pesimo">Excelente</label>
-		<input type='radio' name="transpublic" id="pesimo">
+		<label for="excelente"><img src="D:/web/imagenes/excelente.jpg" class="iconoEvaluacion"></label>
+		<input type='radio' name="transpublic" id="excelente">
 		</td>
 		
 		</tr>
