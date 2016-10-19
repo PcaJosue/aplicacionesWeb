@@ -6,6 +6,17 @@
 <style>
 .iconoEvaluacion{width:50px}
 </style>
+<script>
+function mostrarIcono(){
+var p=document.getElementById("puntos");
+p.addEventListener('change',function(){
+var valor=document.getElementById("puntos").value;
+var cara=document.getElementById("cara").innerHTML=valor;
+});
+
+}
+
+</script>
 </head>
 	<body ng-controller='control1'>
 	<h1>{{encuesta}}</h1>
@@ -17,28 +28,10 @@
 		</td></tr>
 		<tr>
 		<td>
-		<label for="pesimo"><img src="D:/web/imagenes/pesimo.jpg" class="iconoEvaluacion"></label>
-		<input type='radio' name="transpublic" id="pesimo">
-		</td>
 		
-		<td>
-		<label for="malo"><img src="D:/web/imagenes/malo.jpg" class="iconoEvaluacion"></label>
-		<input type='radio' name="transpublic" id="malo">
-		</td>
+		<evaluacion/>
 		
-		<td>
-		<label for="aceptable"><img src="D:/web/imagenes/aceptable.jpg" class="iconoEvaluacion"></label>
-		<input type='radio' name="transpublic" id="aceptable">
-		</td>
 		
-		<td>
-		<label for="bueno"><img src="D:/web/imagenes/bueno.jpg" class="iconoEvaluacion"></label>
-		<input type='radio' name="transpublic" id="bueno">
-		</td>
-		
-		<td>
-		<label for="excelente"><img src="D:/web/imagenes/excelente.jpg" class="iconoEvaluacion"></label>
-		<input type='radio' name="transpublic" id="excelente">
 		</td>
 		
 		</tr>
@@ -48,8 +41,20 @@
 		var mipp=angular.module('miapp',[])
 		.controller('control1',function($scope){
 		$scope.encuesta='Encuesta sobre servicios publicos';
-		}
-		);
+		})
+		.directive('evaluacion',function($interval){
+		var puntos=1;
+		var obj={
+		restrict:'E',link:function(scope,elemento,atributo){
+			elemento.html('<img src="imagenes/1.jpg"/>');
+			elemento.on('click',function(){
+			puntos++;
+			if(puntos>5) puntos=1;
+			elemento.html('<img src="imagenes/'+puntos+'.jpg"/>');
+			})
+		}}
+		return obj;
+		});
 		</script>
 	</body>
 </html>
