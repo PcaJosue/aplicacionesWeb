@@ -7,6 +7,7 @@
 	</head>
 	<body ng-app='control1'>
 		{{"hola"}}
+		<br>
 		<pregunta name='a'></pregunta>
 		<pregunta name='b'></pregunta>
 		
@@ -19,12 +20,13 @@
 					restrcict:'E',
 					link: function(scope,elemento,atributo)
 					{
-						elemento.html("<input type='range' id='"+atributo.name+"' min='1' max='5'><div id='"+atributo.name+"c'></div>");
+						elemento.html("<input type='range' id='"+atributo.name+"' min='1' max='5'> " +
+						"<img id='"+atributo.name+"c' src='imagenes/3.gif'>");
 						elemento.on('change',function()
 						{
 							var p=document.getElementById(atributo.name);
 							var pc=document.getElementById(atributo.name+'c');
-							pc.innerHTML=p.value;
+							pc.src='imagenes/'+p.value+'.gif';
 						});
 					}
 				}
