@@ -8,7 +8,12 @@
 	<body ng-app='control1'>
 		{{"hola"}}
 		<br>
+		¿QUE OPINA SOBRE EL TRANSPORTE PUBLICO?
+		<br>
 		<pregunta name='a'></pregunta>
+		<br>
+		¿QUE OPINA SOBRE LOS PARQUES Y JARDINES?
+		<br>
 		<pregunta name='b'></pregunta>
 		
 		
@@ -20,13 +25,17 @@
 					restrcict:'E',
 					link: function(scope,elemento,atributo)
 					{
-						elemento.html("<input type='range' id='"+atributo.name+"' min='1' max='5'> " +
-						"<img id='"+atributo.name+"c' src='imagenes/3.gif'>");
+						elemento.html("<input type='range' id='"+
+						atributo.name+"' min='1' max='5'> " +
+						"<img id='"+atributo.name+"c' src='imagenes/3.gif'>"
+						+ "<audio id='"+atributo.name+"b' src='sonidos/s3.mp3' autoplay preload='auto'></audio>");
 						elemento.on('change',function()
 						{
 							var p=document.getElementById(atributo.name);
 							var pc=document.getElementById(atributo.name+'c');
+							var pb=document.getElementById(atributo.name+'b')
 							pc.src='imagenes/'+p.value+'.gif';
+							pb.src='sonidos/s'+p.value + '.mp3';
 						});
 					}
 				}
