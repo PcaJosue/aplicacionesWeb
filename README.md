@@ -1,48 +1,40 @@
-# aplicacionesWeb
 <html ng-app="miapp">
 	<head>
 		<meta charset="utf-8">
-		<script src="angular-1.5.8/angular.min.js">
+		<link href="E:\WEB\bootstrap-3.3.7-dist\css\bootstrap.min.css" rel="stylesheet">
+		<script src="E:\WEB\bootstrap-3.3.7-dist\js\bootstrap.min.js"></script>
+		<script src="E:\WEB\angular-1.5.8/angular.js">
 		</script>
 	</head>
-	<body ng-app='control1'>
-		{{"hola"}}
-		<br>
-		¿QUE OPINA SOBRE EL TRANSPORTE PUBLICO?
-		<br>
-		<pregunta name='a'></pregunta>
-		<br>
-		¿QUE OPINA SOBRE LOS PARQUES Y JARDINES?
-		<br>
-		<pregunta name='b'></pregunta>
-		
-		
+	<body ng-controller='control1'>
+		<div class= "btn-group">
+		<div style="background-color: #0072bc; width:200px ; height:200px">
+		<pregunta1> </pregunta1>
+		<pregunta1> </pregunta1>
+		</div>
+		<button type="button" class="btn btn-default dropdown-toogle" data-toogle="dato" aria-haspopup="true" aria-expanded="false">
+		{{"Action"}} <span class="caret"> </span>
+		</button>
+		</div>
 		<script>
 		var miapp=angular.module('miapp',[])
-		.controller('control1',function(){})
-		.directive('pregunta',function(){
-				var obj={
-					restrcict:'E',
-					link: function(scope,elemento,atributo)
-					{
-						elemento.html("<input type='range' id='"+
-						atributo.name+"' min='1' max='5'> " +
-						"<img id='"+atributo.name+"c' src='imagenes/3.gif'>"
-						+ "<audio id='"+atributo.name+"b' src='sonidos/s3.mp3' autoplay preload='auto'></audio>");
-						elemento.on('change',function()
-						{
-							var p=document.getElementById(atributo.name);
-							var pc=document.getElementById(atributo.name+'c');
-							var pb=document.getElementById(atributo.name+'b')
-							pc.src='imagenes/'+p.value+'.gif';
-							pb.src='sonidos/s'+p.value + '.mp3';
-						});
-					}
-				}
-				return obj;
-		}
-	
-	)
-</script>
+		.controller('control1',function($scope){})
+		.directive('pregunta1',function(){
+			var obj={
+			restrict: 'E',
+			link: function(scope,elemento,atributo){
+			var estado=1;
+            elemento.html('<img src="cat/cat_a'+estado+'.gif"/>');
+            elemento.on('click',function(){
+                    estado++;
+                    estado= estado==10 ? 1:estado;
+                     elemento.html('<img src="cat/cat_a'+estado+'.gif"/>');
+                });
+			}
+			};
+			return obj;
+			})
+		;
+		</script>
 </body>
 </html>
